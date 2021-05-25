@@ -1,0 +1,92 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:form> 
+       <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+<!--                 <h:form>-->
+                
+<thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>NameOfClass</th>
+                      
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                      <c:forEach items="#{placeTypeModel.placeTypeList}" var="memb" varStatus="status">
+                    <tr>
+                        <td>#{memb.id}</td>
+                        <td>#{memb.typeName}</td>
+                        
+                        <td>
+                         <p:commandButton icon="ui-icon-pencil" oncomplete="PF('editPl').show()" update="@widgetVar(editPl)">
+                             <f:setPropertyActionListener value="#{memb}" target="#{placeTypeModel.placedetails}"/>
+                        </p:commandButton>
+                            <p:commandButton icon="ui-icon-trash" action="#{placeTypeModel.fetchAndShow(memb)}"/>
+                        </td>
+                    </tr>
+                      </c:forEach>
+                       </tbody>
+  </table> 
+    </h:form>
+<!--                          </h:form>-->
+                        <h:form id="modal_form">
+            <p:dialog widgetVar="editPl" closable="true" showEffect="fade" closeOnEscape="bounce" position="center">
+                <f:facet name="header">EDIT PlaceType DETAILS</f:facet>
+               <div class="row">
+
+                     <div class="col-md-12">
+                         <div class="form-group">
+                             <label> ID</label>
+
+                             <p:inputText class="form-control" value="#{placeTypeModel.placedetails.id}" pt:placeholder="ID" style="border: 1px solid grey; background: transparent; margin-bottom: 20px;"/>
+                                           
+                                           </div> 
+                     </div>
+                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label> Type Name</label>
+
+                                                <p:inputText class="form-control" value="#{placeTypeModel.placedetails.typeName}" pt:placeholder="Type Names" style="border: 1px solid grey; background: transparent; margin-bottom: 20px;"/>
+                                    
+                                    </div> 
+                                        </div>
+                                    </div>
+
+ <p:commandButton value="Yes" icon="ui-icon-check" action="#{placeTypeModel.updatePlaceType()}" update="@all"/>
+                    <p:commandButton value="No" icon="ui-icon-cancel" onclick="PF('editP1').hide()"/>
+
+
+
+            </p:dialog>
+            
+                      
+                 
+                        </h:form>
+<!--            </p:dialog>   -->
+                        
+                    
+                     <h:form id="delete_form">
+            <p:confirmDialog message="Are You Sure You Want To Delete This Member" widgetVar="delete">
+                <p:commandButton value="Yes" icon="ui-icon-check" action="#{placeTypeModel.deletePlaceType()}" update="@all"/>
+                <p:commandButton value="No" icon="ui-icon-cancel" oncomplete="PF('delete').hide()" action="#{placeTypeModel.clearPlaceTypeDetails()}"/>
+            </p:confirmDialog>
+                     </h:form>
+
+                 
+                  
+    </h:body>
+</html>
+

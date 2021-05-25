@@ -1,0 +1,110 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        
+    </h:head>
+    <h:body>
+        <f:view>
+            <h:form>
+                <p:growl/>
+                  <h2>Save Province</h2>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="Prov_Id:" for="prov_Id" />
+                    <h:inputText id="prov_Id" value="#{provinceModel.province.prov_Id}" title="Prov_Id" />
+                    <h:outputLabel value="Prov_Name:" for="prov_Name" />
+                    <h:inputText id="prov_Name" value="#{provinceModel.province.prov_Name}" title="Prov_Name" />
+                    <h:commandButton value="Save" action="#{provinceModel.createProvince()}"/>
+                </h:panelGrid>
+            </h:form>
+        </f:view>
+
+        <f:view>
+
+
+            <h:form>
+                 <p:growl/>
+                <h2>Save District</h2>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="Dist_Id:" for="dist_Id" />
+                    <h:inputText id="dist_Id" value="#{districtModel.district.dist_Id}" title="Dist_Id" />
+                    <h:outputLabel value="Dist_Name:" for="dist_Name" />
+                    <h:inputText id="dist_Name" value="#{districtModel.district.dist_Name}" title="Dist_Name" />
+                    <h:outputLabel value="Province:" for="province" />
+                    <h:selectOneMenu id="province" value="#{districtModel.dropPro}" title="Province" >
+
+                        <f:selectItems value="#{provinceModel.provinceList}" var="p" itemLabel="#{p.prov_Name}" itemValue="#{p.prov_Id}"/>
+                    </h:selectOneMenu>
+                    <h:commandButton value="Save" action="#{districtModel.createDistrict()}"/>
+                </h:panelGrid>
+            </h:form>
+        </f:view>
+
+
+        <f:view>
+
+
+            <h:form>
+               <p:growl/>
+                <h2>Save Sector</h2>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="Sect_Id:" for="sect_Id" />
+                    <h:inputText id="sect_Id" value="#{sectorModel.sector.sect_Id}" title="Sect_Id" />
+                    <h:outputLabel value="Sect_Name:" for="sect_Name" />
+                    <h:inputText id="sect_Name" value="#{sectorModel.sector.sect_Name}" title="Sect_Name" />
+                    <h:outputLabel value="District:" for="district" />
+                    <h:selectOneMenu id="district" value="#{sectorModel.dropDis}" title="District" >
+                        <f:selectItems value="#{districtModel.districtList}" var="d" itemLabel="#{d.dist_Name}" itemValue="#{d.dist_Id}"/>
+                    </h:selectOneMenu>
+                    <h:commandButton value="Save" action="#{sectorModel.createSector()}"/>
+                </h:panelGrid>
+            </h:form>
+        </f:view>
+
+        <f:view>
+
+
+            <h:form>
+                <p:growl/>
+                <h2>Save Cell</h2>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="Cell_Id:" for="cell_Id" />
+                    <h:inputText id="cell_Id" value="#{cellsModel.cell.cell_Id}" title="Cell_Id" />
+                    <h:outputLabel value="Cell_Name:" for="cell_Name" />
+                    <h:inputText id="cell_Name" value="#{cellsModel.cell.cell_Name}" title="Cell_Name" />
+                    <h:outputLabel value="Sector:" for="sector" />
+                    <h:selectOneMenu id="sector" value="#{cellsModel.dropSec}" title="Sector">
+                        <f:selectItems value="#{sectorModel.sectorList}" var="c" itemLabel="#{c.sect_Name}" itemValue="#{c.sect_Id}"/>
+                    </h:selectOneMenu>
+                    <h:commandButton value="Save" action="#{cellsModel.createCell()}"/>
+                </h:panelGrid>
+            </h:form>
+        </f:view>
+
+        <f:view>
+
+
+            <h:form>
+                <p:growl/>
+                <h2>Save Village</h2>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="Vill_Id:" for="vill_Id" />
+                    <h:inputText id="vill_Id" value="#{villageModel.village.vill_Id}" title="Vill_Id" />
+                    <h:outputLabel value="Vill_Name:" for="vill_Name" />
+                    <h:inputText id="vill_Name" value="#{villageModel.village.vill_Name}" title="Vill_Name" />
+                    <h:outputLabel value="Cell:" for="cell" />
+                    <h:selectOneMenu id="cell" value="#{villageModel.dropCell}" title="Cell" >
+                        <f:selectItems value="#{cellsModel.cellList}" var="v" itemLabel="#{v.cell_Name}" itemValue="#{v.cell_Id}"/>
+                    </h:selectOneMenu>
+                    <h:commandButton value="Save" action="#{villageModel.createVillage()}"/>
+                </h:panelGrid>
+            </h:form>
+        </f:view>
+
+
+    </h:body>
+</html>
+

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/defensse</property>
+    <property name="hibernate.connection.username">root</property>
+    <!--<property name="hibernate.connection.password">root</property>-->
+    <property name="hibernate.hbm2ddl.auto">update</property>
+    <mapping class="Domain.Category"/>
+    <mapping class="Domain.Hospital"/>
+    <mapping class="Domain.Login"/>
+    <mapping class="Domain.Service"/>
+    <mapping class="Location.Cells"/>
+    <mapping class="Location.District"/>
+    <mapping class="Location.Province"/>
+    <mapping class="Location.Sector"/>
+    <mapping class="Location.Village"/>
+    <mapping class="Domain.Patient"/>
+    <mapping class="Domain.Compare"/>
+    <mapping class="Domain.HM"/>
+    <mapping class="Domain.Doctor"/>
+    <mapping class="Domain.Mouthly"/>
+    <mapping class="Domain.Appointment"/>
+    <mapping class="Domain.Notification"/>
+  </session-factory>
+</hibernate-configuration>

@@ -1,0 +1,148 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+       <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Map | Online Search Map Location</title>
+
+  <!-- Bootstrap -->
+  <link href="css/bootstrap.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/font-awesome.min.css"/>
+  <link rel="stylesheet" href="css/animate.css"/>
+  <link href="css/prettyPhoto.css" rel="stylesheet"/>
+  <link href="css/styles.css" rel="stylesheet" />
+    </h:head>
+    <h:body>
+       <header>
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="navigation">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse.collapse">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+            <div class="navbar-brand">
+              <a href="Index.xhtml"><img src="images/logo.png" alt="" width="45px"/></a>
+            </div>
+          </div>
+
+          <div class="navbar-collapse collapse">
+            <div class="menu">
+              <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation"><a href="Index.xhtml">Home</a></li>
+                <!--<li role="presentation"><a href="Citizens.xhtml">Citizens</a></li>-->
+                
+                <li class="nav-item dropdown dropdown-slide">
+          <a class="nav-link" href="#" data-toggle="dropdown">Citizens
+            <span><i class="glyphicon glyphicon-chevron-down"></i></span>
+          </a>
+          <!-- Dropdown list -->
+          <div class="dropdown-menu">
+              <ul>
+                  <li> <a class="dropdown-item" href="Citizens.xhtml">Data Entry</a></li>
+                  <li><a class="dropdown-item" href="AllCitizens.xhtml">Reports</a></li>
+              </ul>
+        </div>
+          
+        </li>
+                <!--<li role="presentation"><a href="AllCitizens.xhtml">All Citizens</a></li>-->
+                    <!--<li role="presentation"><a href="Migration.xhtml">Migration</a></li>-->
+                <!--<li role="presentation"><a href="AllMigration.xhtml">All Migrations</a></li>-->
+                <li class="nav-item dropdown dropdown-slide">
+          <a class="nav-link" href="#" data-toggle="dropdown">Migrations
+            <span><i class="glyphicon glyphicon-chevron-down"></i></span>
+          </a>
+          <!-- Dropdown list -->
+          <div class="dropdown-menu">
+              <ul>
+                  <li> <a class="dropdown-item" href="Migration.xhtml">Data Entry</a></li>
+                  <li><a class="dropdown-item" href="#">Reports</a>
+                  <ul class="itam-2">
+                                <li><a class="dropdown-item" href="AllMigration.xhtml">List</a></li>
+                                <li><a class="dropdown-item" href="MigrationsGraph.xhtml">Graph</a></li>
+                               
+                            </ul>
+                  </li>
+              </ul>
+        </div>
+          
+        </li>
+                <li role="presentation"><a href="Map.xhtml" class="active">Map</a></li>
+                <li role="presentation"><a href="../Login/Index.xhtml">Log Out<span><i class="fa fa-user"></i></span></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+ <div class="feature">
+    <div class="container">
+      <div class="text-center">
+        <div class="col-md-12">
+         
+        </div>
+        <div class="col-md-12">
+          <div class="hi-icon-wrap hi-icon-effect wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
+            <i class="fa fa-globe"></i>
+             <div class="panel panel-primary">
+                 <h:form>
+                     <p:messages/>
+                     <div class="panel-heading" style="background-color: #0077b5">Map View</div>
+      <div class="panel-body">
+          <br/>
+          
+          
+          	<div class="mapb">
+		<div class="col-md-6 w3layouts-map">
+		<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3987.5010791104064!2d30.100393814278167!3d-1.9528447372660782!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x19dca6fa155a04a3%3A0xacfd05f7e1fc8f74!2sRwanda%20Development%20Board!5e0!3m2!1sen!2srw!4v1581180451884!5m2!1sen!2srw" width="1050" height="600" frameborder="0" style="border:0"></iframe></div>
+</div>
+
+       
+          
+      </div>
+      
+      </h:form>
+             </div>          
+          </div>
+        </div>
+        
+        
+      </div>
+    </div>
+  </div>
+  <!--/#main-slider-->
+
+ 
+
+  <footer>
+    <div class="footer">
+        
+      <center>   &copy; <script>document.write(new Date().getUTCFullYear());</script> All Rights Reserved | uwase carine</center>
+   
+    </div>
+  </footer>
+
+
+
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="js/jquery.min.js"></script>
+  <script src="js/jquery-migrate.min.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery.prettyPhoto.js"></script>
+  <script src="js/jquery.isotope.min.js"></script>
+  <script src="js/wow.min.js"></script>
+  <script src="js/functions.js"></script>
+    </h:body>
+</html>
+

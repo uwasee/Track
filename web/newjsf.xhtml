@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <f:view>
+
+
+            <h:form>
+                <h1><h:outputText value="Create/Edit"/></h1>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="Id:" for="id" />
+                    <h:inputText id="id" value="#{citizenModel.citydetails.id}" title="Id" />
+                    <h:outputLabel value="FirstName:" for="firstName" />
+                    <h:inputText id="firstName" value="#{citizenModel.citydetails.firstName}" title="FirstName" />
+                    <h:outputLabel value="LastName:" for="lastName" />
+                    <h:inputText id="lastName" value="#{citizenModel.citydetails.lastName}" title="LastName" />
+                    <h:outputLabel value="Contact:" for="contact" />
+                    <h:inputText id="contact" value="#{citizenModel.citydetails.contact}" title="Contact" />
+                    <h:outputLabel value="Gender:" for="gender" />
+                    <h:inputText id="gender" value="#{citizenModel.citydetails.gender}" title="Gender" />
+                    <h:outputLabel value="Username:" for="username" />
+                    <h:inputText id="username" value="#{citizenModel.citydetails.username}" title="Username" />
+                    <h:outputLabel value="Password:" for="password" />
+                    <h:outputLabel value="Province" for="dep   "/>
+                    <h:selectOneMenu id="dep" value="#{districtModel.dropPro}">
+                        <f:selectItem itemLabel="Select Province" noSelectionOption="true" />
+                        <f:selectItems value="#{provinceModel.provinceList}" var="pr" itemLabel="#{pr.prov_Name}" itemValue="#{pr.prov_Id}"/>
+                        <f:ajax render="dist" listener="#{districtModel.findByProvince()}"/>                    
+                    </h:selectOneMenu>
+                    <h:outputLabel value="District" for="dist"/>
+                    <h:selectOneMenu id="dist" value="#{sectorModel.dropDis}">
+                        <f:selectItem itemLabel="Select District" noSelectionOption="true"/>
+                        <f:selectItems value="#{districtModel.districtByProvince}" var="di" itemLabel="#{di.dist_Name}" itemValue="#{di.dist_Id}"/>                    
+                        <f:ajax render="sec" listener="#{sectorModel.findByDistrict()}"/>
+                    </h:selectOneMenu>
+
+                    <h:outputLabel value="Sector" for="sec"/>
+                    <h:selectOneMenu id="sec" value="#{cellModel.dropSec}">
+                        <f:selectItem itemLabel="Select Sector" noSelectionOption="true"/>
+                        <f:selectItems value="#{sectorModel.se}" var="c" itemLabel="#{c.sect_Name}" itemValue="#{c.sect_Id}"/> 
+                        <f:ajax render="cell" listener="#{cellModel.findBySector()}"/>
+                    </h:selectOneMenu>
+
+                    <h:outputLabel value="Cell" for="cell"/>
+                    <h:selectOneMenu id="cell" value="#{villageModel.dropCell}">
+                        <f:selectItem itemLabel="Select Cell" noSelectionOption="true"/>
+                        <f:selectItems value="#{cellModel.ce}" var="c" itemLabel="#{c.cell_Name}" itemValue="#{c.cell_Id}"/> 
+                        <f:ajax render="vill" listener="#{cellModel.findBySector()}"/>
+                    </h:selectOneMenu>
+
+                    <h:outputLabel value="Village" for="vill"/>
+                    <h:selectOneMenu id="vill" value="#{memberModel.dropVillages}">
+                        <f:selectItem itemLabel="Select Village" noSelectionOption="true"/>
+                        <f:selectItems value="#{villageModel.villages}" var="cv" itemLabel="#{cv.vill_Name}" itemValue="#{cv.vill_Id}"/> 
+                        <f:ajax render="vill" listener="#{villageModel.findByCell()}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+            </h:form>
+        </f:view>
+
+    </h:body>
+</html>
+
